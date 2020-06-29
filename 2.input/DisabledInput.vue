@@ -16,24 +16,20 @@ export default {
   components: { InputForm },
   props: {
     defaultContent: {
-      type: String,
-      default: ''
+      type: String
     },
     maxlength: {
-      type: Number,
-      default: 500
+      type: Number
     },
     disabled: {
       type: Boolean,
       default: true
     },
     readonly: {
-      type: Boolean,
-      default: false
+      type: Boolean
     },
     placeholder: {
-      type: String,
-      default: '내용을 입력해 주세요.'
+      type: String
     }
   }
 }

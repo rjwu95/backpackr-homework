@@ -34,7 +34,7 @@ export default {
     },
     readonly: {
       type: Boolean,
-      default: true
+      default: false
     },
     placeholder: {
       type: String,
@@ -43,7 +43,7 @@ export default {
   },
   data() {
     return {
-      content: this.defaultContent || '',
+      content: this.defaultContent,
       isFocused: false
     }
   },
