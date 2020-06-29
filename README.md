@@ -1,7 +1,7 @@
 # backpackr-homework
 
 ## 1. Card
-### FlexibleCard
+### ResponsiveCard
 | props   |   type   |  default |
 |---------|:--------:|------:|
 | image |  string | 'https://www.spartacapital.com/wp-content/uploads/2019/04/Sample-Logo-square.png' |

@@ -1,5 +1,5 @@
 <template>
-  <div class="flexible-container">
+  <div class="responsive-container">
     <img :src="image">
     <div class="vertical-content">
       <div class="title-container">
@@ -27,7 +27,7 @@
 
 <script>
 export default {
-  name: 'FlexibleCard',
+  name: 'ResponsiveCard',
   props: {
     image: {
       type: String,
@@ -86,7 +86,7 @@ export default {
   display: block;
   padding: 0 10px;
 }
-.flexible-container {
+.responsive-container {
   border: solid;
   display: flex;
   margin-right: 50px;
@@ -127,7 +127,7 @@ export default {
   justify-content: center;
 }
 @media screen and (max-height: 440px) {
-  .flexible-container {
+  .responsive-container {
     flex-direction: row;
     width: 800px;
     height: 250px;
@@ -141,7 +141,7 @@ export default {
   }
 }
 @media screen and (min-height: 441px) {
-  .flexible-container {
+  .responsive-container {
     flex-direction: column;
     width: 300px;
   }
