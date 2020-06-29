@@ -11,7 +11,7 @@
   
   export default {
   	name: 'Sample',
-    components: { ResponsiveCard, HorizontalCard, 	VerticalCard }
+    components: { ResponsiveCard, HorizontalCard, VerticalCard }
   }
   또는
   import card from '1.card'
@@ -47,19 +47,19 @@
    import { ResponsiveCard, HorizontalCard, VerticalCard } from './1.card'
    
    export default {
-   	name: 'Sample',
-     components: { ResponsiveCard, HorizontalCard, 	VerticalCard }
+    name: 'Sample',
+    components: { ResponsiveCard, HorizontalCard, VerticalCard }
    }
    또는
    import card from './1.card'
    
    export default {
    	name: 'Sample',
-     components: {
-       ResponsiveCard: card.ResponsiveCard, 			
-       HorizontalCard: card.HorizontalCard, 	
-       VerticalCard: card.VerticalCard
-     }
+    components: {
+      ResponsiveCard: card.ResponsiveCard, 			
+      HorizontalCard: card.HorizontalCard, 	
+      VerticalCard: card.VerticalCard
+    }
    }
    ```
 
