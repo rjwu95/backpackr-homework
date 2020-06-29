@@ -81,6 +81,7 @@
 | horizontalWidth | string |    '800px' |
 | horizontalHeight | string |    '250px' |
 | writer | string |    'John Doe' |
+| changeDirectionHeight | string | '440px' |
 
 ### HorizontalCard
 | props   |   type   |  default |

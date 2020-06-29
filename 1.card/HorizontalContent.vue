@@ -43,9 +43,6 @@ export default {
   overflow: hidden;
 }
 .horizontal-content {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
   overflow: hidden;
   display: block;
   padding: 0 10px;

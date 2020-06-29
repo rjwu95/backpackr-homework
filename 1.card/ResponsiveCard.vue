@@ -2,9 +2,9 @@
   <div
     class="responsive-container"
     ref="responsiveContainer"
-    :style="{ width: containerWidth, height: containerHeight }"
+    :style="{ width: containerWidth, height: containerHeight, 'flex-direction': responsiveDirection }"
   >
-    <img :src="image">
+    <img :src="image" :width="imageWidth" :height="imageHeight">
     <VerticalContent
       class="vertical-child"
       :label="label"
@@ -71,17 +71,24 @@ export default {
     },
     writer: {
       type: String,
+    },
+    changeDirectionHeight: {
+      type: String,
+      default: '440px'
     }
   },
   data() {
     return {
       containerWidth: '',
       containerHeight: '',
-      matchHeight: null
+      matchHeight: null,
+      responsiveDirection: '',
+      imageWidth: '',
+      imageHeight: ''
     }
   },
   mounted() {
-    this.matchHeight = window.matchMedia("(max-height: 440px)")
+    this.matchHeight = window.matchMedia(`(max-height: ${this.changeDirectionHeight})`)
     this.changeCardDirection(this.matchHeight)
     this.matchHeight.addListener(this.changeCardDirection)
   },
@@ -93,9 +100,19 @@ export default {
       if (target.matches) {
         this.containerHeight = this.horizontalHeight
         this.containerWidth = this.horizontalWidth
+        this.responsiveDirection = 'row'
+        this.imageWidth = 'auto'
+        this.imageHeight = '100%'
+        document.querySelector('.vertical-content').style.display = 'none'
+        document.querySelector('.horizontal-content').style.display = 'block'
       } else {
         this.containerWidth = this.verticalWidth
         this.containerHeight = 'auto'
+        this.responsiveDirection = 'column'
+        this.imageWidth ='100%'
+        this.imageHeight = 'auto'
+        document.querySelector('.vertical-content').style.display = 'block'
+        document.querySelector('.horizontal-content').style.display = 'none'
       }
     }
   }
@@ -107,30 +124,6 @@ export default {
   border: solid;
   display: flex;
   margin-right: 50px;
-}
-@media screen and (max-height: 440px) {
-  .responsive-container {
-    flex-direction: row;
-  }
-  .vertical-child >>> .vertical-content {
-    display: none !important;
-  }
-  img { 
-    height: 100%;
-    width: auto;
-  }
-}
-@media screen and (min-height: 441px) {
-  .responsive-container {
-    flex-direction: column;
-  }
-  .horizontal-child >>> .horizontal-content {
-    display: none !important;
-  }
-  img { 
-    width: 100%;
-    height: auto;
-  }
 }
 @media screen and (max-height: 480px) {
   .vertical-child >>> .description-container {
