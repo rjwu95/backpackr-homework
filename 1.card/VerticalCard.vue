@@ -23,17 +23,14 @@ export default {
   props: {
     image: {
       type: String,
-      required: false,
       default: 'https://www.spartacapital.com/wp-content/uploads/2019/04/Sample-Logo-square.png'
     },
     label: {
       type: String,
-      required: false,
       default: 'Card Label'
     },
     title: {
       type: String,
-      required: false,
       default: 'Card Title'
     },
     hilight: {
@@ -42,12 +39,10 @@ export default {
     },
     rating: {
       type: Number,
-      required: false,
       default: 3
     },
     description: {
       type: String,
-      required: false,
       default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
     }
   }
