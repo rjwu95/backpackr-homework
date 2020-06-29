@@ -5,7 +5,10 @@
       <div class="title-container">
         <div class="card-label">{{ label }}</div>
         <div class="card-title">{{ title }}</div>
-        <div class="hilight">{{ hilight }}</div>
+        <div class="feature">
+          <span class="hilight">{{ hilight }}</span>
+          <span class="cross-out">{{ crossOut }}</span>
+        </div>
       </div>
       <div class="description-container">
         <div class="rating">
@@ -36,6 +39,10 @@ export default {
     hilight: {
       type: String,
       default: 'Hilight'
+    },
+    crossOut: {
+      type: String,
+      default: 'Cross Out'
     },
     rating: {
       type: Number,
@@ -95,8 +102,16 @@ img {
 .card-label {
   color: gray
 }
-.hilight {
+.feature {
   margin-top: 15px;
-  color: red
+}
+.hilight {
+  color: red;
+  margin-right: 3px;
+}
+.cross-out {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: gray;
 }
 </style>

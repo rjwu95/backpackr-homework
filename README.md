@@ -73,6 +73,7 @@
 | label |    string   |   'Card Label' |
 | title | string |    'Card Title' |
 | hilight | string |    'Hilight' |
+| crossOut | string |    'Cross Out' |
 | rating | number |    3 |
 | description | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
 | horizontalTitle | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
@@ -97,6 +98,7 @@
 | label |    string   |   'Card Label' |
 | title | string |    'Card Title' |
 | hilight | string |    'Hilight' |
+| crossOut | string |    'Cross Out' |
 | rating | number |    3 |
 | description | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
 

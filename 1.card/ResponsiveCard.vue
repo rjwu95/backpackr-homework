@@ -4,8 +4,11 @@
     <div class="vertical-content">
       <div class="title-container">
         <div class="card-label">{{ label }}</div>
-        <div class="card-title">{{ title }}</div>
-        <div class="hilight">{{ hilight }}</div>
+        <div class="bold">{{ title }}</div>
+        <div class="feature">
+          <span class="hilight">{{ hilight }}</span>
+          <span class="cross-out">{{ crossOut }}</span>
+        </div>
       </div>
       <div class="description-container">
         <div class="rating">
@@ -26,6 +29,8 @@
 </template>
 
 <script>
+const LOREM = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+
 export default {
   name: 'ResponsiveCard',
   props: {
@@ -45,17 +50,21 @@ export default {
       type: String,
       default: 'Hilight'
     },
+    crossOut: {
+      type: String,
+      default: 'Cross Out'
+    },
     rating: {
       type: Number,
       default: 3
     },
     description: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+      default: LOREM
     },
     horizontalTitle: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+      default: LOREM
     },
     verticalWidth: {
       type: Number,
@@ -166,16 +175,21 @@ export default {
     display: none !important;
   }
 }
-.card-title {
-  font-weight: bold;
-}
 .card-label {
   margin-top: 5px;
   color: gray;
 }
-.hilight {
+.feature {
   margin-top: 15px;
-  color: red
+}
+.hilight {
+  color: red;
+  margin-right: 3px;
+}
+.cross-out {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: gray;
 }
 .bold {
   font-weight: bold;

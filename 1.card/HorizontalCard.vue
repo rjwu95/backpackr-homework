@@ -13,6 +13,8 @@
 </template>
 
 <script>
+const LOREM = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+
 export default {
   name: 'HorizontalCard',
   props: {
@@ -22,7 +24,7 @@ export default {
     },
     title: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+      default: LOREM
     },
     rating: {
       type: Number,
@@ -30,7 +32,7 @@ export default {
     },
     description: {
       type: String,
-      default: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+      default: LOREM
     },
     writer: {
       type: String,
