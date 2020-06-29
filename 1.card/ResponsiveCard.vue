@@ -1,38 +1,36 @@
 <template>
-  <div class="responsive-container">
+  <div
+    class="responsive-container"
+    ref="responsiveContainer"
+    :style="{ width: containerWidth, height: containerHeight }"
+  >
     <img :src="image">
-    <div class="vertical-content">
-      <div class="title-container">
-        <div class="card-label">{{ label }}</div>
-        <div class="bold">{{ title }}</div>
-        <div class="feature">
-          <span class="hilight">{{ hilight }}</span>
-          <span class="cross-out">{{ crossOut }}</span>
-        </div>
-      </div>
-      <div class="description-container">
-        <div class="rating">
-          <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
-        </div>
-        <p class="vertical-description singleline-description">{{ description }}</p>
-      </div>
-    </div>
-    <div class="horizontal-content">
-      <p class="bold singleline-description">{{ horizontalTitle }}</p>
-      <p class="multiline-description">{{ description }}</p>
-      <div>
-        <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
-        <span> | {{ writer }}</span>
-      </div>
-    </div>
+    <VerticalContent
+      class="vertical-child"
+      :label="label"
+      :title="title"
+      :hilight="hilight"
+      :crossOut="crossOut"
+      :description="description"
+      :rating="rating"
+    />
+    <HorizontalContent 
+      class="horizontal-child"
+      :title="horizontalTitle"
+      :description="description"
+      :rating="rating"
+      :writer="writer"
+    />
   </div>
 </template>
 
 <script>
-const LOREM = 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?'
+import VerticalContent from './VerticalContent.vue'
+import HorizontalContent from './HorizontalContent.vue'
 
 export default {
   name: 'ResponsiveCard',
+  components: { VerticalContent, HorizontalContent },
   props: {
     image: {
       type: String,
@@ -40,108 +38,81 @@ export default {
     },
     label: {
       type: String,
-      default: 'Card Label'
     },
     title: {
       type: String,
-      default: 'Card Title'
     },
     hilight: {
       type: String,
-      default: 'Hilight'
     },
     crossOut: {
       type: String,
-      default: 'Cross Out'
     },
     rating: {
       type: Number,
-      default: 3
     },
     description: {
       type: String,
-      default: LOREM
     },
     horizontalTitle: {
       type: String,
-      default: LOREM
     },
     verticalWidth: {
-      type: Number,
-      default: 300
+      type: String,
+      default: '300px'
     },
     horizontalWidth: {
-      type: Number,
-      default: 800
+      type: String,
+      default: '800px'
     },
     horizontalHeight: {
-      type: Number,
-      default: 250
+      type: String,
+      default: '250px'
     },
     writer: {
       type: String,
-      default: 'John Doe'
+    }
+  },
+  data() {
+    return {
+      containerWidth: '',
+      containerHeight: '',
+      matchHeight: null
+    }
+  },
+  mounted() {
+    this.matchHeight = window.matchMedia("(max-height: 440px)")
+    this.changeCardDirection(this.matchHeight)
+    this.matchHeight.addListener(this.changeCardDirection)
+  },
+  destroyed() {
+    this.matchHeight.removeListener(this.changeCardDirection)
+  },
+  methods: {
+    changeCardDirection(target) {
+      if (target.matches) {
+        this.containerHeight = this.horizontalHeight
+        this.containerWidth = this.horizontalWidth
+      } else {
+        this.containerWidth = this.verticalWidth
+        this.containerHeight = 'auto'
+      }
     }
   }
 }
 </script>
 
 <style scoped>
-.horizontal-content {
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  overflow: hidden;
-  display: block;
-  padding: 0 10px;
-}
 .responsive-container {
   border: solid;
   display: flex;
   margin-right: 50px;
 }
-.singleline-description {
-  white-space: nowrap; 
-  overflow: hidden;
-  text-overflow: ellipsis; 
-}
-.multiline-description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-.title-container {
-  border-bottom: solid;
-  overflow: hidden;
-  display: block;
-  align-items: flex-start;
-  flex-direction: column;
-  padding: 0 10px;
-}
-.icon {
-  color: #aaaaaa
-}
-.icon.selected {
-  color: #ffbe3f
-}
-.description-container {
-  overflow: hidden;
-  padding: 10px 10px;
-  height: 76px;
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 @media screen and (max-height: 440px) {
   .responsive-container {
     flex-direction: row;
-    width: 800px;
-    height: 250px;
   }
-  .vertical-content {
+  .vertical-child >>> .vertical-content {
     display: none !important;
   }
   img { 
@@ -152,9 +123,8 @@ export default {
 @media screen and (min-height: 441px) {
   .responsive-container {
     flex-direction: column;
-    width: 300px;
   }
-  .horizontal-content {
+  .horizontal-child >>> .horizontal-content {
     display: none !important;
   }
   img { 
@@ -163,35 +133,16 @@ export default {
   }
 }
 @media screen and (max-height: 480px) {
-  .description-container {
+  .vertical-child >>> .description-container {
     display: none !important;
   }
-  .title-container {
+  .vertical-child >>> .title-container {
     border-bottom: none !important;
   }
 }
 @media screen and (max-height: 530px) {
-  .vertical-description {
+  .vertical-child >>> .vertical-description {
     display: none !important;
   }
-}
-.card-label {
-  margin-top: 5px;
-  color: gray;
-}
-.feature {
-  margin-top: 15px;
-}
-.hilight {
-  color: red;
-  margin-right: 3px;
-}
-.cross-out {
-  text-decoration: line-through;
-  font-size: 12px;
-  color: gray;
-}
-.bold {
-  font-weight: bold;
 }
 </style>

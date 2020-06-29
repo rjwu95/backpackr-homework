@@ -77,9 +77,9 @@
 | rating | number |    3 |
 | description | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
 | horizontalTitle | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
-| verticalWidth | number |    300 |
-| horizontalWidth | number |    800 |
-| horizontalHeight | number |    250 |
+| verticalWidth | string |    '300px' |
+| horizontalWidth | string |    '800px' |
+| horizontalHeight | string |    '250px' |
 | writer | string |    'John Doe' |
 
 ### HorizontalCard
@@ -90,6 +90,8 @@
 | rating | number |    3 |
 | description | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
 | writer | string |    'John Doe' |
+| height | string |    '250px' |
+| width | string |    '800px' |
 
 ### VerticalCard
 | props   |   type   |  default |
@@ -101,6 +103,7 @@
 | crossOut | string |    'Cross Out' |
 | rating | number |    3 |
 | description | string |    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestias ea modi esse a tenetur, maxime ratione velit quod repellendus veniam voluptas voluptates quaerat, provident itaque voluptatem quae. Harum, laboriosam earum?' |
+| width | string | '300px' |
 
 ## 2. Input
 
