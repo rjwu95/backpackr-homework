@@ -111,7 +111,7 @@
   
   export default {
   	name: 'Sample',
-    components: { Input, DisabledInput, 	ReadonlyInput }
+    components: { Input, DisabledInput, ReadonlyInput }
   }
   또는
   import input from '2.input'
@@ -148,7 +148,7 @@
    
    export default {
    	name: 'Sample',
-     components: { Input, DisabledInput, 	ReadonlyInput }
+     components: { Input, DisabledInput, ReadonlyInput }
    }
    또는
    import input from './2.input'
