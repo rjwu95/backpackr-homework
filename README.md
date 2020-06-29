@@ -81,7 +81,9 @@
 | horizontalWidth | string |    '800px' |
 | horizontalHeight | string |    '250px' |
 | writer | string |    'John Doe' |
-| changeDirectionHeight | string | '440px' |
+| heightOfChangeDirectionPoint | string | '440px' |
+| heightOfVisibleRatingBoxPoint | string | '480px' |
+| heightOfVisibleDescriptionPoint | string | '530px' |
 
 ### HorizontalCard
 | props   |   type   |  default |

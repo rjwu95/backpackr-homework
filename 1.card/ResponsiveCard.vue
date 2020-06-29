@@ -72,47 +72,95 @@ export default {
     writer: {
       type: String,
     },
-    changeDirectionHeight: {
+    heightOfChangeDirectionPoint: {
       type: String,
       default: '440px'
+    },
+    heightOfVisibleRatingBoxPoint: {
+      type: String,
+      default: '480px'
+    },
+    heightOfVisibleDescriptionPoint: {
+      type: String,
+      default: '530px'
     }
   },
   data() {
     return {
       containerWidth: '',
       containerHeight: '',
-      matchHeight: null,
+      matchChangeDirectionPoint: null,
+      matchVisibleRatingBoxPoint: null,
+      matchVisibleDescriptionPoint: null,
       responsiveDirection: '',
       imageWidth: '',
       imageHeight: ''
     }
   },
   mounted() {
-    this.matchHeight = window.matchMedia(`(max-height: ${this.changeDirectionHeight})`)
-    this.changeCardDirection(this.matchHeight)
-    this.matchHeight.addListener(this.changeCardDirection)
+    this.addListenerDependingHeight()
   },
   destroyed() {
-    this.matchHeight.removeListener(this.changeCardDirection)
+    this.removeListenerDependingHeight()
   },
   methods: {
+    addListenerDependingHeight() {
+      this.matchChangeDirectionPoint = this.matchHeight(this.heightOfChangeDirectionPoint)
+      this.matchVisibleRatingBoxPoint = this.matchHeight(this.heightOfVisibleRatingBoxPoint)
+      this.matchVisibleDescriptionPoint = this.matchHeight(this.heightOfVisibleDescriptionPoint)
+      this.changeCardDirection(this.matchChangeDirectionPoint)
+      this.changeVisibleRatingBox(this.matchVisibleRatingBoxPoint)
+      this.changeVisibleDescription(this.matchVisibleDescriptionPoint)
+      this.matchChangeDirectionPoint.addListener(this.changeCardDirection)
+      this.matchVisibleRatingBoxPoint.addListener(this.changeVisibleRatingBox)
+      this.matchVisibleDescriptionPoint.addListener(this.changeVisibleDescription)
+    },
+    removeListenerDependingHeight() {
+      this.matchChangeDirectionPoint.removeListener(this.changeCardDirection)
+      this.matchVisibleRatingBoxPoint.removeListener(this.changeVisibleRatingBox)
+      this.matchVisibleDescriptionPoint.removeListener(this.changeVisibleDescription)
+    },
+    matchHeight(height) {
+      return window.matchMedia(`(max-height: ${height})`)
+    },
     changeCardDirection(target) {
+      const verticalContent = document.querySelector('.vertical-content')
+      const horizontalContent = document.querySelector('.horizontal-content')
       if (target.matches) {
         this.containerHeight = this.horizontalHeight
         this.containerWidth = this.horizontalWidth
         this.responsiveDirection = 'row'
         this.imageWidth = 'auto'
         this.imageHeight = '100%'
-        document.querySelector('.vertical-content').style.display = 'none'
-        document.querySelector('.horizontal-content').style.display = 'block'
+        verticalContent.style.display = 'none'
+        horizontalContent.style.display = 'block'
       } else {
-        this.containerWidth = this.verticalWidth
         this.containerHeight = 'auto'
+        this.containerWidth = this.verticalWidth
         this.responsiveDirection = 'column'
         this.imageWidth ='100%'
         this.imageHeight = 'auto'
-        document.querySelector('.vertical-content').style.display = 'block'
-        document.querySelector('.horizontal-content').style.display = 'none'
+        verticalContent.style.display = 'block'
+        horizontalContent.style.display = 'none'
+      }
+    },
+    changeVisibleRatingBox(target) {
+      const ratingBox = document.querySelector('.description-container')
+      const titleContainer = document.querySelector('.title-container')
+      if (target.matches) {
+        ratingBox.style.display = 'none'
+        titleContainer.style['border-bottom'] = 'none'
+      } else {
+        ratingBox.style.display = 'flex'
+        titleContainer.style['border-bottom'] = 'solid'
+      }
+    },
+    changeVisibleDescription(target) {
+      const description = document.querySelector('.vertical-description')
+      if (target.matches) {
+        description.style.display = 'none'
+      } else {
+        description.style.display = 'block'
       }
     }
   }
@@ -124,18 +172,5 @@ export default {
   border: solid;
   display: flex;
   margin-right: 50px;
-}
-@media screen and (max-height: 480px) {
-  .vertical-child >>> .description-container {
-    display: none !important;
-  }
-  .vertical-child >>> .title-container {
-    border-bottom: none !important;
-  }
-}
-@media screen and (max-height: 530px) {
-  .vertical-child >>> .vertical-description {
-    display: none !important;
-  }
 }
 </style>
