@@ -33,12 +33,10 @@
      "devDependencies": {
        "@babel/cli": "^7.8.4",
        "@babel/core": "^7.8.3",
-       "@babel/node": "^7.8.3",
        "@babel/plugin-transform-runtime": "^7.8.3",
        "@babel/preset-env": "^7.8.3"
      },
      "dependencies": {
-       "@babel/polyfill": "^7.8.3",
        "@babel/runtime": "^7.8.4"
      }
    ```
@@ -141,12 +139,10 @@
      "devDependencies": {
        "@babel/cli": "^7.8.4",
        "@babel/core": "^7.8.3",
-       "@babel/node": "^7.8.3",
        "@babel/plugin-transform-runtime": "^7.8.3",
        "@babel/preset-env": "^7.8.3"
      },
      "dependencies": {
-       "@babel/polyfill": "^7.8.3",
        "@babel/runtime": "^7.8.4"
      }
    ```
