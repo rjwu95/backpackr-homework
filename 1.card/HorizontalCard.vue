@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container" :style="{ width, height }">
     <img :src="image">
     <HorizontalContent
       :title="title"
