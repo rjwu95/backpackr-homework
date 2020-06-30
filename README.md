@@ -5,13 +5,13 @@
 
 vue cli를 사용하여 프로젝트를 생성한 경우 바로 사용할 수 있고, 이를 수동으로 설정한다면 아래와 같다.(version 4.x)
 ```javascript
-.babelrc
+// .babelrc
 {
   presets: [
     '@vue/cli-plugin-babel/preset'
   ]
 }
-또는 babel.config.js
+또는 // babel.config.js
 module.exports = {
   presets: [
     '@vue/cli-plugin-babel/preset'
