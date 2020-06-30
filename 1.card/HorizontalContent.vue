@@ -1,12 +1,10 @@
 <template>
-  <div class="horizontal-container">
-    <div class="horizontal-content">
-      <p class="bold singleline-description">{{ title }}</p>
-      <p class="multiline-description">{{ description }}</p>
-      <div>
-        <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
-        <span> | {{ writer }}</span>
-      </div>
+  <div class="horizontal-content">
+    <p class="bold singleline-description">{{ title }}</p>
+    <p class="multiline-description">{{ description }}</p>
+    <div>
+      <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
+      <span> | {{ writer }}</span>
     </div>
   </div>
 </template>
@@ -39,9 +37,6 @@ export default {
 </script>
 
 <style scoped>
-.horizontal-container {
-  overflow: hidden;
-}
 .horizontal-content {
   overflow: hidden;
   display: block;

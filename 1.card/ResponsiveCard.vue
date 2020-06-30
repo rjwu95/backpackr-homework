@@ -6,7 +6,6 @@
   >
     <img :src="image" :width="imageWidth" :height="imageHeight">
     <VerticalContent
-      class="vertical-child"
       :label="label"
       :title="title"
       :hilight="hilight"
@@ -15,7 +14,6 @@
       :rating="rating"
     />
     <HorizontalContent 
-      class="horizontal-child"
       :title="horizontalTitle"
       :description="description"
       :rating="rating"
@@ -124,8 +122,8 @@ export default {
       return window.matchMedia(`(max-height: ${height})`)
     },
     changeCardDirection(target) {
-      const verticalContent = document.querySelector('.vertical-content')
-      const horizontalContent = document.querySelector('.horizontal-content')
+      const verticalContent = document.querySelector('.responsive-container .vertical-content')
+      const horizontalContent = document.querySelector('.responsive-container .horizontal-content')
       if (target.matches) {
         this.containerHeight = this.horizontalHeight
         this.containerWidth = this.horizontalWidth
@@ -145,8 +143,8 @@ export default {
       }
     },
     changeVisibleRatingBox(target) {
-      const ratingBox = document.querySelector('.description-container')
-      const titleContainer = document.querySelector('.title-container')
+      const ratingBox = document.querySelector('.responsive-container .vertical-content .description-container')
+      const titleContainer = document.querySelector('.responsive-container .vertical-content .title-container')
       if (target.matches) {
         ratingBox.style.display = 'none'
         titleContainer.style['border-bottom'] = 'none'
@@ -156,7 +154,7 @@ export default {
       }
     },
     changeVisibleDescription(target) {
-      const description = document.querySelector('.vertical-description')
+      const description = document.querySelector('.responsive-container .vertical-content .vertical-description')
       if (target.matches) {
         description.style.display = 'none'
       } else {

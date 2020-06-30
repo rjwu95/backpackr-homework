@@ -1,20 +1,18 @@
 <template>
-  <div>
-    <div class="vertical-content">
-      <div class="title-container">
-        <div class="card-label">{{ label }}</div>
-        <div class="bold">{{ title }}</div>
-        <div class="feature">
-          <span class="hilight">{{ hilight }}</span>
-          <span class="cross-out">{{ crossOut }}</span>
-        </div>
+  <div class="vertical-content">
+    <div class="title-container">
+      <div class="card-label">{{ label }}</div>
+      <div class="bold">{{ title }}</div>
+      <div class="feature">
+        <span class="hilight">{{ hilight }}</span>
+        <span class="cross-out">{{ crossOut }}</span>
       </div>
-      <div class="description-container">
-        <div class="rating">
-          <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
-        </div>
-        <p class="vertical-description singleline-description">{{ description }}</p>
+    </div>
+    <div class="description-container">
+      <div class="rating">
+        <span v-for="n in 5" class="icon" :key="n" :class="{ selected: n <= rating }">★</span>
       </div>
+      <p class="vertical-description singleline-description">{{ description }}</p>
     </div>
   </div>
 </template>
