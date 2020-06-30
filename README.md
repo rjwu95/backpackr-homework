@@ -1,5 +1,7 @@
 # backpackr-homework
 
+이 package는 Vue로 작성되어 있으므로 Vue 프로젝트에서 사용할 수 있다.
+
 ## 1. Card
 
 사용방법
