@@ -1,12 +1,34 @@
 # backpackr-homework
 
 이 package는 Vue로 작성되어 있으므로 Vue 프로젝트에서 사용할 수 있다.
+아래의 두가지 모듈은 모두 다음과 같은 선행조건이 있어야 한다.
+
+vue cli를 사용하여 프로젝트를 생성한 경우 바로 사용할 수 있고, 이를 수동으로 설정한다면 아래와 같다.(version 4.x)
+```javascript
+// .babelrc
+{
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ]
+}
+또는 // babel.config.js
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ]
+}
+
+npm i core-js vue
+npm i -D @vue/cli-plugin-babel @vue/cli-service vue-template-compiler
+```
 
 ## 1. Card
 
 사용방법
+}
+
 1. npm package
-  https://www.npmjs.com/package/1.card 에서 packgae를 다운로드 하는 경우에는 추가 모듈 설치없이 바로 사용할 수 있다.
+  https://www.npmjs.com/package/1.card 에서 packgae를 다운로드 하여 사용할 수 있다.
   
   ```javascript
   import { ResponsiveCard, HorizontalCard, VerticalCard } from '1.card'
@@ -29,18 +51,7 @@
   ```
   
 2. Github Source clone
-   git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다. 단 이때는 아래의 package가 package.json에 추가 되어 있어야 한다.
-
-   ```json
-      "devDependencies": {
-        "@babel/cli": "^7.10.3",
-        "@babel/core": "^7.10.3",
-        "@babel/preset-env": "^7.10.3"
-      },
-      "dependencies": {
-        "core-js": "^3.6.5"
-      }
-   ```
+   git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다.
 
    ```javascript
    import { ResponsiveCard, HorizontalCard, VerticalCard } from './1.card'
@@ -111,7 +122,7 @@
 
 사용방법
 1. npm package
-  https://www.npmjs.com/package/2.input 에서 packgae를 다운로드 하는 경우에는 추가 모듈 설치없이 바로 사용할 수 있다.
+  https://www.npmjs.com/package/2.input 에서 packgae를 다운로드 하여 사용할 수 있다.
   
   ```javascript
   import { Input, DisabledInput, ReadonlyInput } from '2.input'
@@ -134,19 +145,8 @@
   ```
   
 2. Github Source clone
-   git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다. 단 이때는 아래의 package가 package.json에 추가 되어 있어야 한다.
-
-   ```json
-      "devDependencies": {
-        "@babel/cli": "^7.10.3",
-        "@babel/core": "^7.10.3",
-        "@babel/preset-env": "^7.10.3"
-      },
-      "dependencies": {
-        "core-js": "^3.6.5"
-      }
-   ```
-
+   git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다.
+   
    ```javascript
    import { Input, DisabledInput, ReadonlyInput } from './2.input'
    
