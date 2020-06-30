@@ -30,15 +30,14 @@
    git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다. 단 이때는 아래의 package가 package.json에 추가 되어 있어야 한다.
 
    ```json
-     "devDependencies": {
-       "@babel/cli": "^7.8.4",
-       "@babel/core": "^7.8.3",
-       "@babel/plugin-transform-runtime": "^7.8.3",
-       "@babel/preset-env": "^7.8.3"
-     },
-     "dependencies": {
-       "@babel/runtime": "^7.8.4"
-     }
+      "devDependencies": {
+        "@babel/cli": "^7.10.3",
+        "@babel/core": "^7.10.3",
+        "@babel/preset-env": "^7.10.3"
+      },
+      "dependencies": {
+        "core-js": "^3.6.5"
+      }
    ```
 
    ```javascript
@@ -136,15 +135,14 @@
    git에서 해당 소스를 클론한 후 사용할 모듈을 프로젝트로 옮긴 후에 사용할 수 있다. 단 이때는 아래의 package가 package.json에 추가 되어 있어야 한다.
 
    ```json
-     "devDependencies": {
-       "@babel/cli": "^7.8.4",
-       "@babel/core": "^7.8.3",
-       "@babel/plugin-transform-runtime": "^7.8.3",
-       "@babel/preset-env": "^7.8.3"
-     },
-     "dependencies": {
-       "@babel/runtime": "^7.8.4"
-     }
+      "devDependencies": {
+        "@babel/cli": "^7.10.3",
+        "@babel/core": "^7.10.3",
+        "@babel/preset-env": "^7.10.3"
+      },
+      "dependencies": {
+        "core-js": "^3.6.5"
+      }
    ```
 
    ```javascript
